@@ -1,0 +1,3 @@
+acmeEmail: test@example.com
+cloudflareEmail: test@example.com
+matchDomain: example.com
