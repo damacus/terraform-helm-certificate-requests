@@ -1,0 +1,8 @@
+# See https://github.com/helm/chart-testing#configuration
+remote: origin
+chart-dirs:
+  - charts
+chart-repos:
+  - certificate-request=https://damacus.github.io/charts
+  - cluster-issuer=https://damacus.github.io/charts
+debug: true
