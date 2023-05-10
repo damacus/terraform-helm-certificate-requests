@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cluster-issuer
-description: A Helm chart for Kubernetes
+description: Adds letsencrypt issuers for certificate creation
 type: application
 version: 0.1.6
 appVersion: 1.16.0
