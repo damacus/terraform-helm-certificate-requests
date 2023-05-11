@@ -31,8 +31,7 @@ jobs:
           yq: "4.16.2"
 
       - name: Install helm-docs
-        run: |
-          GO111MODULE=on go get github.com/norwoodj/helm-docs/cmd/helm-docs
+        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@master
 
   #     - name: Collect changes
   #       id: collect-changes
