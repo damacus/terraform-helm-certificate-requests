@@ -1,9 +1,10 @@
 apiVersion: v2
-name: certificate-request
-description: A Helm chart to request certificates from cert-manager
+name: supermarket-uploader
+description: A Helm chart to upload Cookbooks to a Chef Supermarket
+
 type: application
-version: 0.2.0
-appVersion: 0.2.0
+version: 0.1.0
+appVersion: "0.0.1"
 
 annotations:
   artifacthub.io/changes: |-
