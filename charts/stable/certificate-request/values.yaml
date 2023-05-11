@@ -1,0 +1,3 @@
+---
+commonName: "example.com"
+DnsNames: "example.com,*.example.com"
