@@ -1,112 +1,71 @@
-name: Release Charts
+name: "Charts: Release"
+concurrency: helm-release
 
-"on":
+on:
   workflow_dispatch:
+    inputs:
+      charts:
+        description: >
+          Charts to release. Comma-separated string.
+          Defaults to releasing everything.
+        default: ""
+        required: false
+
   push:
-    branches: [main]
-    paths: ["charts/**"]
+    branches:
+      - main
+    paths:
+      - "charts/**"
+
+env:
+  HELM_VERSION: 3.11.2
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    permissions: { contents: write }
+  prepare:
+    name: Prepare data required for release
+    runs-on: ubuntu-22.04
+    outputs:
+      # libraryChartsToRelease: ${{ steps.collect-charts.outputs.chartsLibrary }}
+      applicationChartsToRelease: ${{ steps.collect-charts.outputs.chartsApplication }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.9.3
+      - name: Collect charts to release
+        uses: bjw-s/helm-charts-actions/collect-charts@main
+        id: collect-charts
         with:
-          setup-tools: |
-            helmv3
-            yq
-          helm: "3.8.0"
-          yq: "4.16.2"
+          repoConfigFile: ./.ci/repo-config.yaml
+          overrideCharts: "[${{ inputs.charts }}]"
 
-      - name: Install helm-docs
-        run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@master
+  # We don't ahve any library charts yet
+  # release-library-charts:
+  #   name: Release Library charts to GitHub pages
+  #   uses: ./.github/workflows/charts-release-ghpages.yaml
+  #   needs:
+  #     - prepare
+  #   with:
+  #     charts: "${{ needs.prepare.outputs.libraryChartsToRelease }}"
+  #   secrets: inherit
 
-      - name: Collect changes
-        id: collect-changes
-        uses: ./.github/actions/collect-changes
+  release-application-charts:
+    name: Release Application charts to GitHub pages
+    uses: ./.github/workflows/charts-release-ghpages.yaml
+    needs:
+      - prepare
+      # - release-library-charts
+    with:
+      charts: "${{ needs.prepare.outputs.applicationChartsToRelease }}"
+    secrets: inherit
 
-      - name: Generate README for changed charts
-        if: |
-          steps.collect-changes.outputs.changesDetected == 'true'
-        run: |
-          CHARTS=(${{ steps.collect-changes.outputs.addedOrModifiedCharts }})
-          for i in "${CHARTS[@]}"
-          do
-              IFS='/' read -r -a chart_parts <<< "$i"
-              if [ -f "charts/${chart_parts[0]}"/"${chart_parts[1]}/Chart.yaml" ]; then
-                ./.github/scripts/gen-helm-docs.sh "${chart_parts[0]}" "${chart_parts[1]}"
-              fi
-          done
-
-  #     - name: Create commit
-  #       id: create-commit
-  #       uses: stefanzweifel/git-auto-commit-action@v4
-  #       with:
-  #         file_pattern: charts/**/
-  #         commit_message: "chore: Auto-update chart README [skip ci]"
-  #         commit_user_name: $GITHUB_ACTOR
-  #         commit_user_email: $GITHUB_ACTOR@users.noreply.github.com
-  #         commit_author: $GITHUB_ACTOR <$GITHUB_ACTOR@users.noreply.github.com>
-
-  #     - name: Save commit hash
-  #       id: save-commit-hash
-  #       run: |
-  #         if [ "${{ steps.create-commit.outputs.changes_detected || 'unknown' }}" == "true" ]; then
-  #           echo '::set-output name=commit_hash::${{ steps.create-commit.outputs.commit_hash }}'
-  #         else
-  #           echo "::set-output name=commit_hash::${GITHUB_SHA}"
-  #         fi
-
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #       with:
-  #         ref: ${{ steps.save-commit-hash.outputs.commit_hash }}
-  #         fetch-depth: 0
-
-  #     - name: Run chart-releaser
-  #       uses: helm/chart-releaser-action@v1.5.0
-  #       env:
-  #         CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
-  # generate-summary:
-  #   name: Auto-generate charts summary
-  #   runs-on: ubuntu-20.04
-  #   needs: release
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #       with:
-  #         ref: main
-  #         fetch-depth: 0
-
-  #     - name: Install yq
-  #       uses: chrisdickinson/setup-yq@latest
-  #       with:
-  #         yq-version: v4.9.3
-
-  #     - name: Run script
-  #       run: |
-  #         ./hack/gen-chart-summary.sh
-
-  #     - name: Create commit
-  #       id: create-commit
-  #       uses: stefanzweifel/git-auto-commit-action@v4
-  #       with:
-  #         push_options: --force
-  #         commit_message: Auto-generate chart summary [skip ci]
-  #         file_pattern: charts/README.md
-  #         commit_user_name: $GITHUB_ACTOR
-  #         commit_user_email: $GITHUB_ACTOR@users.noreply.github.com
-  #         commit_author: $GITHUB_ACTOR <$GITHUB_ACTOR@users.noreply.github.com>
+  release-github-oci:
+    name: Release Application charts to GitHub Container Registry
+    uses: ./.github/workflows/charts-release-oci.yaml
+    needs:
+      - prepare
+      # - release-library-charts
+    with:
+      charts: "${{ needs.prepare.outputs.applicationChartsToRelease }}"
+    secrets: inherit
