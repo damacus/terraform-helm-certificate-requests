@@ -72,6 +72,6 @@ jobs:
         if: ${{ steps.auto-commit.outputs.changes_detected }}
         id: wait-for-deploy
         with:
-          token: ${{ steps.get-app-token.outputs.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ steps.auto-commit.outputs.commit_hash }}
           checkName: deploy
