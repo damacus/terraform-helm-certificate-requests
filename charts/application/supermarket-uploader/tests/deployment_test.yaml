@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Deployment
+templates:
+  - templates/deployment.yaml
+chart:
+  version: 0.3.4+test
+  appVersion: 1.0.0
+tests:
+  - it: Sets the correct name
+    set:
+      fullnameOverride: test-supermarket-uploader
+    asserts:
+      - isKind:
+          of: Deployment
+      - equal:
+          path: metadata.name
+          value: test-supermarket-uploader

@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/helm-unittest/helm-unittest/main/schema/helm-testsuite.json
+suite: Test Certificate
+templates:
+  - templates/certificate.yaml
+chart:
+  version: 0.3.4+test
+  appVersion: 1.0.0
+tests:
+  - it: Has a proper certificate name
+    set:
+      name: test
+    asserts:
+      - isKind:
+          of: Certificate
+      - equal:
+          path: metadata.name
+          value: test

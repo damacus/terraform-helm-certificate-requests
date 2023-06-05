@@ -1,0 +1,15 @@
+chart-yaml-schema: .ci/ct/chart_schema.yaml
+lint-conf: .yamllint.yml
+
+remote: origin
+target-branch: main
+
+helm-extra-args: --timeout 600s
+
+chart-dirs:
+  - charts/application
+  # - charts/library
+  # - charts/other
+
+chart-repos:
+  - damacus=https://damacus.github.io/charts
