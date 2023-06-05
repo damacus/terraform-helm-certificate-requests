@@ -17,9 +17,6 @@ on:
     paths:
       - "charts/**"
 
-env:
-  HELM_VERSION: 3.11.2
-
 jobs:
   prepare:
     name: Prepare data required for release

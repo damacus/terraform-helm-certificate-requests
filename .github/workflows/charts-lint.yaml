@@ -22,9 +22,6 @@ on:
         required: false
         default: "[]"
 
-env:
-  HELM_VERSION: 3.11.2
-
 jobs:
   lint-chart:
     if: ${{ inputs.chartsToLint != '[]' }}
@@ -54,12 +51,10 @@ jobs:
         with:
           chart: "charts/${{ matrix.chart }}"
 
-      - name: Install Kubernetes tools
-        uses: yokawasa/action-setup-kube-tools@v0.9.3
+      - uses: azure/setup-helm@v3
         with:
-          setup-tools: |
-            helmv3
-          helm: "${{ env.HELM_VERSION }}"
+          token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
+        id: install
 
       - name: Set up chart-testing
         uses: helm/chart-testing-action@v2.4.0

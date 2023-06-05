@@ -77,7 +77,7 @@ jobs:
   # Summarize matrix https://github.community/t/status-check-for-a-matrix-jobs/127354/7
   install_success:
     needs: install-chart
-    if:  always()
+    if: always()
     name: Install successful
     runs-on: ubuntu-22.04
     steps:
