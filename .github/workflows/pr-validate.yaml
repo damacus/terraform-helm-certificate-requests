@@ -47,12 +47,7 @@ jobs:
     with:
       checkoutCommit: ${{ github.sha }}
       chartsToTest: |-
-        ${{
-           (
-             needs.pr-metadata.outputs.commonLibraryUpdated &&
-             '["other/app-template"]'
-           ) || needs.pr-metadata.outputs.chartsToInstall
-         }}
+        ${{ needs.pr-metadata.outputs.chartsToInstall }}
       # overrideDeps: |-
       #   ${{
       #      (
