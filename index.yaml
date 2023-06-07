@@ -7,12 +7,12 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-06-05T10:45:08.520801786Z"
+    created: "2023-06-07T09:32:43.318179773Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
-    digest: 41b18fdc9eb7ce45a1446b5bf02fb827449c7f28593f637cb90229440f9fbdd2
+    digest: 3d17b9bd919db60f0d6d2acbf3c968d40f7d66146ebf34577d76f758e915d023
     name: supermarket-uploader
     type: application
     urls:
     - https://damacus.github.io/helm-charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-05T10:45:08.520196285Z"
+generated: "2023-06-07T09:32:43.317561072Z"
