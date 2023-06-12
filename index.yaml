@@ -7,13 +7,13 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 0.2.0
-    created: "2023-06-12T09:30:36.996263686Z"
+    created: "2023-06-12T10:09:26.406883078Z"
     description: A Helm chart to request certificates from cert-manager
-    digest: 5e613ecba3f4d09563c7b0a39bbd772d78c112c0c54334a0a1e0f89177394d43
+    digest: eba9e61515e4b6ef00df44d9903a6004fccd9c07539fa1efb36de083026ea666
     name: certificate-request
     type: application
     urls:
-    - https://damacus.github.io/helm-charts/application/certificate-request-0.2.0.tgz
+    - https://damacus.github.io/charts/application/certificate-request-0.2.0.tgz
     version: 0.2.0
   cluster-issuer:
   - annotations:
@@ -22,13 +22,13 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-06-12T09:30:36.996497679Z"
+    created: "2023-06-12T10:09:26.407132278Z"
     description: Adds letsencrypt issuers for certificate creation
-    digest: ff4253edde4d4b34583bc97124b05280aa667b4060483e421d9c04ce51c05d27
+    digest: 783ec3f0d5072a05a24efd94e9527b148fd2d2ef5b799499fb3b119a3b3ae701
     name: cluster-issuer
     type: application
     urls:
-    - https://damacus.github.io/helm-charts/application/cluster-issuer-0.2.0.tgz
+    - https://damacus.github.io/charts/application/cluster-issuer-0.2.0.tgz
     version: 0.2.0
   supermarket-uploader:
   - annotations:
@@ -37,12 +37,12 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-06-12T09:30:36.996968666Z"
+    created: "2023-06-12T10:09:26.407598478Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
-    digest: 3d17b9bd919db60f0d6d2acbf3c968d40f7d66146ebf34577d76f758e915d023
+    digest: 98c08bb9ea42e82582e7786345105c9bfe625c06f3932aec30af5f6fd253bbad
     name: supermarket-uploader
     type: application
     urls:
-    - https://damacus.github.io/helm-charts/application/supermarket-uploader-0.1.0.tgz
+    - https://damacus.github.io/charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-12T09:30:36.995901796Z"
+generated: "2023-06-12T10:09:26.406438577Z"
