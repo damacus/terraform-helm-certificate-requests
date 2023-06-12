@@ -1,5 +1,35 @@
 apiVersion: v1
 entries:
+  certificate-request:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial Release
+    apiVersion: v2
+    appVersion: 0.2.0
+    created: "2023-06-12T09:30:36.996263686Z"
+    description: A Helm chart to request certificates from cert-manager
+    digest: 5e613ecba3f4d09563c7b0a39bbd772d78c112c0c54334a0a1e0f89177394d43
+    name: certificate-request
+    type: application
+    urls:
+    - https://damacus.github.io/helm-charts/application/certificate-request-0.2.0.tgz
+    version: 0.2.0
+  cluster-issuer:
+  - annotations:
+      artifacthub.io/changes: |-
+        - kind: changed
+          description: Initial Release
+    apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-06-12T09:30:36.996497679Z"
+    description: Adds letsencrypt issuers for certificate creation
+    digest: ff4253edde4d4b34583bc97124b05280aa667b4060483e421d9c04ce51c05d27
+    name: cluster-issuer
+    type: application
+    urls:
+    - https://damacus.github.io/helm-charts/application/cluster-issuer-0.2.0.tgz
+    version: 0.2.0
   supermarket-uploader:
   - annotations:
       artifacthub.io/changes: |-
@@ -7,7 +37,7 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-06-07T09:32:43.318179773Z"
+    created: "2023-06-12T09:30:36.996968666Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
     digest: 3d17b9bd919db60f0d6d2acbf3c968d40f7d66146ebf34577d76f758e915d023
     name: supermarket-uploader
@@ -15,4 +45,4 @@ entries:
     urls:
     - https://damacus.github.io/helm-charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2023-06-07T09:32:43.317561072Z"
+generated: "2023-06-12T09:30:36.995901796Z"
