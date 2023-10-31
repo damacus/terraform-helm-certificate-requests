@@ -57,7 +57,7 @@ jobs:
         id: install
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.4.0
+        uses: helm/chart-testing-action@v2.6.0
 
       - name: Override chart dependencies
         uses: ./.github/actions/override-chart-deps
