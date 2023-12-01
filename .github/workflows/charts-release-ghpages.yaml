@@ -61,10 +61,10 @@ jobs:
         with:
           repository: dest
           branch: gh-pages
-          commit_user_name: "${{ github.repository_owner }}-bot[bot]"
-          commit_user_email: 87358111+${{ github.repository_owner }}-bot[bot]@users.noreply.github.com
-          commit_author: ${{ github.repository_owner }}-bot[bot] <87358111+${{ github.repository_owner }}-bot[bot]@users.noreply.github.com>
-          file_pattern: "index.yaml **/*.tgz"
+          commit_user_name: "${{ github.repository_owner }}"
+          commit_user_email: 40786+${{ github.repository_owner }}@users.noreply.github.com
+          commit_author: ${{ github.repository_owner }} <40786+${{ github.repository_owner }}@users.noreply.github.com>
+          file_pattern: "index.yaml **/*.tgz README.md"
           disable_globbing: true
 
       - name: Wait for deploy

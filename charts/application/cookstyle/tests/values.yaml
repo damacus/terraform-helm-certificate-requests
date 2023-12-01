@@ -1,0 +1,12 @@
+image:
+  repository: docker.io/xorima/github-cookstyle-runner
+  pullPolicy: Always
+
+  destination_repo_owner: "test-boy"
+  destination_repo_topics: "foo,bar,baz"
+  branch_name: "automated/cookstyle"
+  pr_title: "Automated PR: Cookstyle Changes"
+  changelog_location: "CHANGELOG.md"
+  changelog_marker: "## Unreleased"
+  manage_changelog: 1
+schedule: "0 0 * * *"

@@ -1,0 +1,53 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cookstyle
+spec:
+  concurrencyPolicy: Replace
+  schedule: {{ .Values.cookstyle.schedule | default "0 0 * * 2" }}
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            - name: {{ .Chart.Name }}
+              image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+              imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent" }}
+              env:
+                - name: GCR_DESTINATION_REPO_OWNER
+                  value: {{ .Values.cookstyle.destination_repo_owner }}
+                - name: GCR_DESTINATION_REPO_TOPICS
+                  value: {{ .Values.cookstyle.destination_repo_topics }}
+                # - name: GCR_BRANCH_NAME
+                #   value: {{ .Values.cookstyle.branch_name }}
+                # - name: GCR_PULL_REQUEST_TITLE
+                #   value: {{ .Values.cookstyle.pr_title }}
+                # - name: GCR_CHANGELOG_LOCATION
+                #   value: {{ .Values.cookstyle.changelog_location }}
+                - name: GCR_CHANGELOG_MARKER
+                  value: {{ .Values.cookstyle.changelog_marker }}
+                - name: GCR_MANAGE_CHANGELOG
+                  value: {{ toString .Values.cookstyle.manage_changelog }}
+                # - name: GCR_GIT_NAME
+                #   valueFrom:
+                #     secretKeyRef:
+                #       name: { { .Values.cookstyle.github_token_secret_name } }
+                #       key: github_git_name
+                # - name: GCR_GIT_EMAIL
+                #   valueFrom:
+                #     secretKeyRef:
+                #       name: { { .Values.cookstyle.github_token_secret_name } }
+                #       key: github_git_email
+                # - name: GCM_GIT_USERNAME
+                #   valueFrom:
+                #     secretKeyRef:
+                #       name: { { .Values.cookstyle.github_token_secret_name } }
+                #       key: github_git_username
+                # - name: GITHUB_TOKEN
+                #   valueFrom:
+                #     secretKeyRef:
+                #       name: { { .Values.cookstyle.github_token_secret_name } }
+                #       key: github_token

@@ -1,0 +1,35 @@
+image:
+  repository: docker.io/xorima/github-cookstyle-runner
+  # pullPolicy: IfNotPresent
+  # tag: "" Defaults to Chart.appVersion
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+cookstyle:
+  destination_repo_owner: "sous-chefs"
+  destination_repo_topics: "chef-cookbook,chef"
+  branch_name: "automated/cookstyle"
+  pr_title: "Automated PR: Cookstyle Changes"
+  changelog_location: "CHANGELOG.md"
+  changelog_marker: "## Unreleased"
+  manage_changelog: "0" # 0 = false, 1 = true
+  schedule: "0 0 * * *"
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+replicaCount: 1
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

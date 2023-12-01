@@ -1,0 +1,7 @@
+apiVersion: v2
+name: cookstyle
+description: A Helm chart for configuring Con Jobs for Cookstyle
+type: application
+version: 0.1.0
+appVersion: "2.0.0"
+icon: https://www.sous-chefs.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.3d81a62b.png&w=96&q=75
