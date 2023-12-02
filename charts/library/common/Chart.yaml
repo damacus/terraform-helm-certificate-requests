@@ -1,0 +1,13 @@
+apiVersion: v2
+name: common
+description: Common helm chart
+type: library
+version: 5.0.0
+kubeVersion: ">=1.16.0-0"
+keywords:
+  - damacus
+  - common
+home: https://github.com/damacus/charts/tree/main/charts/applibrary/common
+maintainers:
+  - name: damacus
+    email: dan.webb@damacus.io
