@@ -1,0 +1,15 @@
+dependencies:
+- name: common
+  repository: https://damacus.github.io/charts
+  version: 5.0.1
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 13.2.23
+- name: mariadb
+  repository: https://charts.bitnami.com/bitnami
+  version: 14.1.4
+- name: influxdb
+  repository: https://charts.bitnami.com/bitnami
+  version: 5.10.2
+digest: sha256:ce9e03fdb61eaab0d758268e501bdff7290417d9ac6e3236d3ffaf51823fa5ee
+generated: "2023-12-04T11:45:56.887279Z"
