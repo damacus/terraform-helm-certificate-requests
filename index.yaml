@@ -7,7 +7,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 0.2.0
-    created: "2023-12-04T10:16:57.184705975Z"
+    created: "2023-12-04T11:36:36.4012304Z"
     description: A Helm chart to request certificates from cert-manager
     digest: eba9e61515e4b6ef00df44d9903a6004fccd9c07539fa1efb36de083026ea666
     name: certificate-request
@@ -22,7 +22,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-04T10:16:57.184931866Z"
+    created: "2023-12-04T11:36:36.401407228Z"
     description: Adds letsencrypt issuers for certificate creation
     digest: 783ec3f0d5072a05a24efd94e9527b148fd2d2ef5b799499fb3b119a3b3ae701
     name: cluster-issuer
@@ -30,6 +30,28 @@ entries:
     urls:
     - https://damacus.github.io/charts/application/cluster-issuer-0.2.0.tgz
     version: 0.2.0
+  common:
+  - annotations:
+      artifacthub.io/changes: |
+        - "Update CodeServeer, Promtail container versions"
+      artifacthub.io/containsSecurityUpdates: "false"
+    apiVersion: v2
+    created: "2023-12-04T11:36:36.403516459Z"
+    description: Common helm chart
+    digest: f02392d9f7579cb67c19231f2db30fa7b43264d1ef4f26690364bd9557af0f59
+    home: https://github.com/damacus/charts/tree/main/charts/applibrary/common
+    keywords:
+    - damacus
+    - common
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: dan.webb@damacus.io
+      name: damacus
+    name: common
+    type: library
+    urls:
+    - https://damacus.github.io/charts/library/common-5.0.1.tgz
+    version: 5.0.1
   supermarket-uploader:
   - annotations:
       artifacthub.io/changes: |-
@@ -37,7 +59,7 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-12-04T10:16:57.185271068Z"
+    created: "2023-12-04T11:36:36.401753692Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
     digest: 98c08bb9ea42e82582e7786345105c9bfe625c06f3932aec30af5f6fd253bbad
     name: supermarket-uploader
@@ -45,4 +67,4 @@ entries:
     urls:
     - https://damacus.github.io/charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-04T10:16:57.184422637Z"
+generated: "2023-12-04T11:36:36.400943286Z"
