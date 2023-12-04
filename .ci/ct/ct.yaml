@@ -12,3 +12,4 @@ chart-dirs:
 
 chart-repos:
   - damacus=https://damacus.github.io/charts
+  - bitnami=https://charts.bitnami.com/bitnami
