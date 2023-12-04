@@ -29,8 +29,8 @@ jobs:
     strategy:
       matrix:
         chart: ${{ fromJSON(inputs.chartsToTest) }}
-        k8s_version:
-          ["v1.22.17", "v1.23.17", "v1.24.13", "v1.25.9", "v1.26.4", "v1.27.1"]
+        k8s_version: # https://kubernetes.io/releases/
+          ["v1.26.10", "v1.27.8", "v1.28.4"]
       fail-fast: false
     steps:
       - name: Checkout

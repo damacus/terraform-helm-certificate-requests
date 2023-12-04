@@ -22,7 +22,7 @@ jobs:
     name: Prepare data required for release
     runs-on: ubuntu-22.04
     outputs:
-      # libraryChartsToRelease: ${{ steps.collect-charts.outputs.chartsLibrary }}
+      libraryChartsToRelease: ${{ steps.collect-charts.outputs.chartsLibrary }}
       applicationChartsToRelease: ${{ steps.collect-charts.outputs.chartsApplication }}
     steps:
       - name: Checkout
@@ -37,22 +37,21 @@ jobs:
           repoConfigFile: ./.ci/repo-config.yaml
           overrideCharts: "[${{ inputs.charts }}]"
 
-  # We don't ahve any library charts yet
-  # release-library-charts:
-  #   name: Release Library charts to GitHub pages
-  #   uses: ./.github/workflows/charts-release-ghpages.yaml
-  #   needs:
-  #     - prepare
-  #   with:
-  #     charts: "${{ needs.prepare.outputs.libraryChartsToRelease }}"
-  #   secrets: inherit
+  release-library-charts:
+    name: Release Library charts to GitHub pages
+    uses: ./.github/workflows/charts-release-ghpages.yaml
+    needs:
+      - prepare
+    with:
+      charts: "${{ needs.prepare.outputs.libraryChartsToRelease }}"
+    secrets: inherit
 
   release-application-charts:
     name: Release Application charts to GitHub pages
     uses: ./.github/workflows/charts-release-ghpages.yaml
     needs:
       - prepare
-      # - release-library-charts
+      - release-library-charts
     with:
       charts: "${{ needs.prepare.outputs.applicationChartsToRelease }}"
     secrets: inherit
@@ -62,7 +61,7 @@ jobs:
     uses: ./.github/workflows/charts-release-oci.yaml
     needs:
       - prepare
-      # - release-library-charts
+      - release-library-charts
     with:
       charts: "${{ needs.prepare.outputs.applicationChartsToRelease }}"
     secrets: inherit
