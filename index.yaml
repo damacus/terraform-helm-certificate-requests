@@ -7,7 +7,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 0.2.0
-    created: "2023-12-02T21:54:51.246772865Z"
+    created: "2023-12-04T10:16:57.184705975Z"
     description: A Helm chart to request certificates from cert-manager
     digest: eba9e61515e4b6ef00df44d9903a6004fccd9c07539fa1efb36de083026ea666
     name: certificate-request
@@ -22,7 +22,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-02T21:54:51.247281242Z"
+    created: "2023-12-04T10:16:57.184931866Z"
     description: Adds letsencrypt issuers for certificate creation
     digest: 783ec3f0d5072a05a24efd94e9527b148fd2d2ef5b799499fb3b119a3b3ae701
     name: cluster-issuer
@@ -37,7 +37,7 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2023-12-02T21:54:51.247666909Z"
+    created: "2023-12-04T10:16:57.185271068Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
     digest: 98c08bb9ea42e82582e7786345105c9bfe625c06f3932aec30af5f6fd253bbad
     name: supermarket-uploader
@@ -45,4 +45,4 @@ entries:
     urls:
     - https://damacus.github.io/charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-02T21:54:51.245957498Z"
+generated: "2023-12-04T10:16:57.184422637Z"
