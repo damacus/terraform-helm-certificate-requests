@@ -14,4 +14,4 @@ maintainers:
 annotations:
   artifacthub.io/changes: |
     - "Update CodeServeer, Promtail container versions"
-  artifacthub.io/containsSecurityUpdates: "true"
+  artifacthub.io/containsSecurityUpdates: "false"
