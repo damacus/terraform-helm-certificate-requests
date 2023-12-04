@@ -4,7 +4,7 @@ name: "Schedule: Sync labels"
 "on":
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * 1" # every Monday at 12pm UTC
+    - cron: "0 14 * * 1" # every Monday at 12pm UTC
 
 jobs:
   labels:

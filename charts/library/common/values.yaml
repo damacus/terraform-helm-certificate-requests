@@ -510,7 +510,7 @@ addons:
         # -- Specify the WireGuard image
         repository: ghcr.io/linuxserver/wireguard
         # -- Specify the WireGuard image tag
-        tag: v1.0.20210914-ls13
+        tag: v1.0.20210914-ls11
         # -- Specify the WireGuard image pull policy
         pullPolicy: IfNotPresent
 
