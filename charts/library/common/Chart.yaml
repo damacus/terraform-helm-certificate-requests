@@ -2,7 +2,7 @@ apiVersion: v2
 name: common
 description: Common helm chart
 type: library
-version: 5.0.0
+version: 5.0.1
 kubeVersion: ">=1.16.0-0"
 keywords:
   - damacus
@@ -11,3 +11,7 @@ home: https://github.com/damacus/charts/tree/main/charts/applibrary/common
 maintainers:
   - name: damacus
     email: dan.webb@damacus.io
+annotations:
+  artifacthub.io/changes: |
+    - "Update CodeServeer, Promtail container versions"
+  artifacthub.io/containsSecurityUpdates: "true"
