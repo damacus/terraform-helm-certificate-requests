@@ -7,7 +7,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 0.2.0
-    created: "2024-01-03T16:20:48.10196707Z"
+    created: "2024-01-19T15:34:35.703062869Z"
     description: A Helm chart to request certificates from cert-manager
     digest: eba9e61515e4b6ef00df44d9903a6004fccd9c07539fa1efb36de083026ea666
     name: certificate-request
@@ -22,7 +22,7 @@ entries:
           description: Initial Release
     apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-01-03T16:20:48.102156063Z"
+    created: "2024-01-19T15:34:35.703263764Z"
     description: Adds letsencrypt issuers for certificate creation
     digest: 783ec3f0d5072a05a24efd94e9527b148fd2d2ef5b799499fb3b119a3b3ae701
     name: cluster-issuer
@@ -36,7 +36,7 @@ entries:
         - "Update CodeServeer, Promtail container versions"
       artifacthub.io/containsSecurityUpdates: "false"
     apiVersion: v2
-    created: "2024-01-03T16:20:48.12907648Z"
+    created: "2024-01-19T15:34:35.730604124Z"
     description: Common helm chart
     digest: f02392d9f7579cb67c19231f2db30fa7b43264d1ef4f26690364bd9557af0f59
     home: https://github.com/damacus/charts/tree/main/charts/applibrary/common
@@ -59,7 +59,7 @@ entries:
           description: Upgraded `common` chart dependency to version 5.0.1
     apiVersion: v2
     appVersion: 2023.11.3
-    created: "2024-01-03T16:20:48.126982019Z"
+    created: "2024-01-19T15:34:35.72861169Z"
     dependencies:
     - name: common
       repository: https://damacus.github.io/charts
@@ -102,7 +102,7 @@ entries:
           description: Upgraded `common` chart dependency to version 5.0.1
     apiVersion: v2
     appVersion: 2023.11.3
-    created: "2024-01-03T16:20:48.114885092Z"
+    created: "2024-01-19T15:34:35.714759201Z"
     dependencies:
     - name: common
       repository: https://damacus.github.io/charts
@@ -146,7 +146,7 @@ entries:
           description: Default ingress to false
     apiVersion: v2
     appVersion: 0.0.1
-    created: "2024-01-03T16:20:48.127314549Z"
+    created: "2024-01-19T15:34:35.728958879Z"
     description: A Helm chart to upload Cookbooks to a Chef Supermarket
     digest: 98c08bb9ea42e82582e7786345105c9bfe625c06f3932aec30af5f6fd253bbad
     name: supermarket-uploader
@@ -154,4 +154,4 @@ entries:
     urls:
     - https://damacus.github.io/charts/application/supermarket-uploader-0.1.0.tgz
     version: 0.1.0
-generated: "2024-01-03T16:20:48.10166731Z"
+generated: "2024-01-19T15:34:35.702749143Z"
