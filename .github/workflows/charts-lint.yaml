@@ -51,7 +51,7 @@ jobs:
         with:
           chart: "charts/${{ matrix.chart }}"
 
-      - uses: azure/setup-helm@v3
+      - uses: azure/setup-helm@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
         id: install
